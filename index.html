@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#006b62">
+<meta name="description" content="مدارس البيارق الأهلية — صرح تعليمي رائد في شرق الرياض. تعليم متكامل من التمهيدي حتى الثانوي بمنصة رقمية متقدمة وكوادر مؤهلة.">
+<meta name="keywords" content="مدارس البيارق الأهلية, البيارق, مدارس أهلية, شرق الرياض, تعليم خاص, تسجيل إلكتروني, منصة البيارق">
+<title>مدارس البيارق الأهلية — صرح التعليم الحديث في شرق الرياض</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Cairo:wght@600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+  :root{
+    --primary:#006b62;
+    --primary-dark:#00433d;
+    --primary-light:#3a9b91;
+    --primary-50:#e6f2f0;
+    --gold:#c9a84c;
+    --gold-dark:#a07830;
+    --ink:#0f1f1d;
+    --muted:#5b6b69;
+    --line:#e6ebea;
+    --bg:#fafbfb;
+    --white:#ffffff;
+    --radius:18px;
+    --radius-sm:12px;
+    --shadow-sm:0 2px 8px rgba(0,67,61,.06);
+    --shadow:0 14px 40px -16px rgba(0,67,61,.25);
+    --shadow-lg:0 30px 70px -24px rgba(0,67,61,.35);
+    --ease:cubic-bezier(.22,.61,.36,1);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{
+    font-family:'Tajawal',system-ui,-apple-system,Segoe UI,sans-serif;
+    font-weight:400;
+    color:var(--ink);
+    background:var(--bg);
+    line-height:1.65;
+    overflow-x:hidden;
+    text-rendering:optimizeLegibility;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{font-family:'Cairo','Tajawal',sans-serif;font-weight:800;line-height:1.25;letter-spacing:-.01em}
+  a{color:inherit;text-decoration:none;transition:color .25s var(--ease)}
+  img{max-width:100%;display:block}
+  button{font-family:inherit;cursor:pointer;border:none;background:none}
+  .container{width:min(1240px,92%);margin:0 auto}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:999px;background:var(--primary-50);color:var(--primary);font-size:.82rem;font-weight:700;margin-bottom:18px}
+  .eyebrow i{font-size:.7rem}
+  .section-title{font-size:clamp(1.8rem,3.6vw,2.8rem);margin-bottom:14px}
+  .section-lead{color:var(--muted);font-size:1.05rem;max-width:680px;margin-bottom:48px}
+  .text-center{text-align:center}
+  .text-center .section-lead{margin-inline:auto}
+
+  /* ============ Top Bar ============ */
+  .topbar{background:var(--primary-dark);color:rgba(255,255,255,.85);font-size:.82rem;padding:8px 0}
+  .topbar .container{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+  .topbar-info{display:flex;gap:22px;flex-wrap:wrap}
+  .topbar-info span{display:inline-flex;align-items:center;gap:8px}
+  .topbar-info i{color:var(--gold)}
+  .topbar-social{display:flex;gap:6px}
+  .topbar-social a{width:28px;height:28px;display:grid;place-items:center;border-radius:6px;background:rgba(255,255,255,.08);font-size:.78rem;transition:all .25s var(--ease)}
+  .topbar-social a:hover{background:var(--gold);color:var(--primary-dark);transform:translateY(-2px)}
+
+  /* ============ Navbar ============ */
+  .nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.85);backdrop-filter:saturate(180%) blur(18px);-webkit-backdrop-filter:saturate(180%) blur(18px);border-bottom:1px solid var(--line);transition:all .3s var(--ease)}
+  .nav.scrolled{box-shadow:0 6px 24px -10px rgba(0,67,61,.15)}
+  .nav .container{display:flex;align-items:center;justify-content:space-between;padding:14px 0;gap:24px}
+  .brand{display:flex;align-items:center;gap:12px;font-weight:900;font-family:'Cairo',sans-serif}
+  .brand-mark{width:46px;height:46px;border-radius:12px;background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%);display:grid;place-items:center;color:#fff;font-size:1.3rem;box-shadow:var(--shadow-sm);position:relative;overflow:hidden}
+  .brand-mark::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 30% 20%,rgba(255,255,255,.35),transparent 55%)}
+  .brand-text{display:flex;flex-direction:column;line-height:1.15}
+  .brand-text strong{font-size:1.02rem;color:var(--primary-dark)}
+  .brand-text small{font-size:.72rem;color:var(--muted);font-weight:500;letter-spacing:.04em}
+  .menu{display:flex;align-items:center;gap:4px;list-style:none}
+  .menu>li{position:relative}
+  .menu>li>a{display:inline-flex;align-items:center;gap:6px;padding:10px 14px;border-radius:10px;color:var(--ink);font-weight:600;font-size:.93rem;transition:all .2s var(--ease)}
+  .menu>li>a:hover{background:var(--primary-50);color:var(--primary-dark)}
+  .menu>li.has-dropdown>a::after{content:"\f078";font-family:"Font Awesome 6 Free";font-weight:900;font-size:.62rem;opacity:.6;transition:transform .25s var(--ease)}
+  .menu>li.has-dropdown:hover>a::after{transform:rotate(180deg)}
+  .dropdown{position:absolute;top:calc(100% + 6px);right:0;min-width:240px;background:#fff;border-radius:14px;box-shadow:var(--shadow);border:1px solid var(--line);padding:10px;opacity:0;visibility:hidden;transform:translateY(8px);transition:all .25s var(--ease);list-style:none;z-index:60}
+  .menu>li.has-dropdown:hover .dropdown{opacity:1;visibility:visible;transform:translateY(0)}
+  .dropdown a{display:block;padding:10px 12px;border-radius:8px;font-size:.88rem;color:var(--ink);font-weight:500}
+  .dropdown a:hover{background:var(--primary-50);color:var(--primary-dark)}
+  .nav-cta{display:flex;align-items:center;gap:10px}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:11px 20px;border-radius:11px;font-weight:700;font-size:.92rem;transition:all .25s var(--ease);white-space:nowrap;cursor:pointer}
+  .btn-primary{background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%);color:#fff;box-shadow:0 8px 22px -8px rgba(0,107,98,.55)}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 30px -10px rgba(0,107,98,.65)}
+  .btn-gold{background:linear-gradient(135deg,var(--gold) 0%,var(--gold-dark) 100%);color:#fff;box-shadow:0 8px 22px -8px rgba(201,168,76,.55)}
+  .btn-gold:hover{transform:translateY(-2px);box-shadow:0 14px 30px -10px rgba(201,168,76,.65)}
+  .btn-ghost{background:#fff;color:var(--primary-dark);border:1px solid var(--line)}
+  .btn-ghost:hover{border-color:var(--primary);color:var(--primary)}
+  .btn-outline-light{color:#fff;border:1.5px solid rgba(255,255,255,.35)}
+  .btn-outline-light:hover{background:#fff;color:var(--primary-dark);border-color:#fff}
+  .btn-light{background:#fff;color:var(--primary-dark)}
+  .btn-light:hover{transform:translateY(-2px);box-shadow:0 14px 30px -10px rgba(0,0,0,.25)}
+  .nav-toggle{display:none;width:42px;height:42px;border-radius:10px;background:var(--primary-50);color:var(--primary-dark);font-size:1.1rem;align-items:center;justify-content:center}
+
+  /* ============ Hero ============ */
+  .hero{position:relative;padding:80px 0 100px;overflow:hidden;background:radial-gradient(1100px 580px at 90% -10%,rgba(0,107,98,.10),transparent 60%),radial-gradient(900px 500px at -10% 100%,rgba(201,168,76,.10),transparent 60%),linear-gradient(180deg,#fff 0%,#fafbfb 100%)}
+  .hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(circle at 1px 1px,rgba(0,67,61,.07) 1px,transparent 0);background-size:28px 28px;mask-image:radial-gradient(ellipse 80% 60% at 50% 30%,#000 30%,transparent 75%);-webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 30%,#000 30%,transparent 75%);pointer-events:none}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center;position:relative}
+  .hero-content{position:relative;z-index:2}
+  .hero h1{font-size:clamp(2.2rem,4.6vw,3.6rem);line-height:1.2;margin-bottom:22px}
+  .hero h1 .accent{background:linear-gradient(135deg,var(--primary) 0%,var(--gold) 100%);-webkit-background-clip:text;background-clip:text;color:transparent;display:inline-block}
+  .hero p.lead{font-size:1.12rem;color:var(--muted);margin-bottom:32px;max-width:560px}
+  .hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:36px}
+  .hero-meta{display:flex;gap:28px;flex-wrap:wrap}
+  .hero-meta div{display:flex;flex-direction:column}
+  .hero-meta strong{font-family:'Cairo';font-size:1.45rem;color:var(--primary-dark);font-weight:800}
+  .hero-meta span{font-size:.82rem;color:var(--muted);font-weight:500}
+  /* Hero visual */
+  .hero-visual{position:relative;height:540px}
+  .visual-card{position:absolute;background:#fff;border-radius:22px;box-shadow:var(--shadow-lg);overflow:hidden;border:1px solid var(--line)}
+  .visual-main{inset:0 50px 0 0;padding:0;background:linear-gradient(135deg,#003d38 0%,#006b62 60%,#3a9b91 100%);color:#fff;display:flex;flex-direction:column;justify-content:space-between;padding:36px}
+  .visual-main::before{content:"";position:absolute;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(201,168,76,.35),transparent 60%);bottom:-100px;left:-80px}
+  .visual-main::after{content:"";position:absolute;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.18),transparent 60%);top:-60px;right:-60px}
+  .visual-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,.18);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.22);font-size:.78rem;font-weight:600;width:fit-content;position:relative;z-index:2}
+  .visual-illustration{position:relative;z-index:2;display:grid;place-items:center;flex-grow:1;padding:20px 0}
+  .visual-shield{width:160px;height:170px;background:linear-gradient(135deg,var(--gold) 0%,var(--gold-dark) 100%);clip-path:path("M80,0 L160,30 L160,100 Q160,160 80,170 Q0,160 0,100 L0,30 Z");display:grid;place-items:center;color:#fff;font-size:3.6rem;box-shadow:0 20px 50px -20px rgba(0,0,0,.5);position:relative}
+  .visual-shield::before{content:"";position:absolute;inset:6px;border:2px dashed rgba(255,255,255,.4);clip-path:path("M74,0 L148,28 L148,92 Q148,148 74,158 Q0,148 0,92 L0,28 Z")}
+  .visual-shield-text{position:absolute;font-family:'Cairo';font-weight:900;font-size:1.4rem;color:#fff;text-shadow:0 2px 8px rgba(0,0,0,.3)}
+  .visual-tagline{font-family:'Cairo';font-size:1.4rem;font-weight:800;text-align:center;position:relative;z-index:2}
+  .visual-tagline small{display:block;font-size:.85rem;font-weight:500;opacity:.85;margin-top:6px;font-family:'Tajawal'}
+  /* Floating cards */
+  .visual-float{position:absolute;background:#fff;border-radius:16px;padding:14px 18px;box-shadow:var(--shadow);display:flex;align-items:center;gap:12px;border:1px solid var(--line);z-index:3;animation:float 6s ease-in-out infinite}
+  .visual-float .ic{width:42px;height:42px;border-radius:11px;display:grid;place-items:center;color:#fff;font-size:1.05rem;flex-shrink:0}
+  .visual-float .tx{display:flex;flex-direction:column;line-height:1.3}
+  .visual-float .tx strong{font-family:'Cairo';font-size:.92rem;color:var(--ink)}
+  .visual-float .tx span{font-size:.75rem;color:var(--muted)}
+  .visual-float-1{top:20px;left:-30px;animation-delay:-.5s}
+  .visual-float-1 .ic{background:linear-gradient(135deg,#22c55e,#15803d)}
+  .visual-float-2{bottom:80px;left:-50px;animation-delay:-2s}
+  .visual-float-2 .ic{background:linear-gradient(135deg,var(--primary),var(--primary-dark))}
+  .visual-float-3{top:50%;right:-40px;animation-delay:-3.5s}
+  .visual-float-3 .ic{background:linear-gradient(135deg,var(--gold),var(--gold-dark))}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+
+  /* ============ Trust strip ============ */
+  .trust{padding:34px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#fff}
+  .trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;align-items:center}
+  .trust-item{display:flex;align-items:center;gap:14px}
+  .trust-item .ic{width:48px;height:48px;border-radius:12px;background:var(--primary-50);color:var(--primary);display:grid;place-items:center;font-size:1.2rem;flex-shrink:0}
+  .trust-item strong{display:block;font-family:'Cairo';font-size:1rem;color:var(--ink)}
+  .trust-item span{font-size:.82rem;color:var(--muted)}
+
+  /* ============ Section spacing ============ */
+  section{padding:90px 0;position:relative}
+  .section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:30px;margin-bottom:50px;flex-wrap:wrap}
+  .section-head .left{max-width:640px}
+
+  /* ============ About / Identity ============ */
+  .identity-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+  .identity-visual{position:relative;border-radius:24px;overflow:hidden;aspect-ratio:1/1;background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%);display:grid;place-items:center;box-shadow:var(--shadow-lg)}
+  .identity-visual::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 70% 30%,rgba(201,168,76,.3),transparent 50%),radial-gradient(circle at 20% 80%,rgba(255,255,255,.1),transparent 50%)}
+  .identity-stat-card{position:absolute;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);border-radius:18px;padding:18px 22px;box-shadow:var(--shadow);z-index:2}
+  .identity-stat-1{bottom:24px;right:24px}
+  .identity-stat-2{top:24px;left:24px}
+  .identity-stat-card .n{font-family:'Cairo';font-size:1.7rem;font-weight:900;color:var(--primary-dark);line-height:1}
+  .identity-stat-card .l{font-size:.78rem;color:var(--muted);margin-top:4px;display:block}
+  .identity-emblem{position:relative;z-index:1;color:#fff;text-align:center;padding:30px}
+  .identity-emblem i{font-size:5rem;opacity:.9;margin-bottom:14px}
+  .identity-emblem h3{font-size:1.8rem;margin-bottom:8px}
+  .identity-emblem p{opacity:.85;font-size:.95rem}
+  .pillar-list{display:flex;flex-direction:column;gap:18px;margin-top:30px}
+  .pillar{display:flex;gap:18px;padding:22px;background:#fff;border:1px solid var(--line);border-radius:16px;transition:all .3s var(--ease)}
+  .pillar:hover{border-color:var(--primary);transform:translateX(-6px);box-shadow:var(--shadow)}
+  .pillar-ic{width:52px;height:52px;border-radius:14px;background:var(--primary-50);color:var(--primary);display:grid;place-items:center;font-size:1.2rem;flex-shrink:0}
+  .pillar:nth-child(2) .pillar-ic{background:#fef3e2;color:var(--gold-dark)}
+  .pillar:nth-child(3) .pillar-ic{background:#e8f5e9;color:#15803d}
+  .pillar h4{font-size:1.1rem;margin-bottom:6px}
+  .pillar p{font-size:.92rem;color:var(--muted);line-height:1.6}
+
+  /* ============ Stages ============ */
+  .stages{background:linear-gradient(180deg,#fff 0%,var(--bg) 100%)}
+  .stages-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+  .stage{padding:32px 24px;background:#fff;border:1px solid var(--line);border-radius:20px;transition:all .35s var(--ease);position:relative;overflow:hidden}
+  .stage::before{content:"";position:absolute;inset:auto 0 0 0;height:3px;background:linear-gradient(90deg,var(--primary),var(--gold));transform:scaleX(0);transform-origin:right;transition:transform .4s var(--ease)}
+  .stage:hover{transform:translateY(-8px);box-shadow:var(--shadow);border-color:transparent}
+  .stage:hover::before{transform:scaleX(1)}
+  .stage-ic{width:64px;height:64px;border-radius:18px;background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%);color:#fff;display:grid;place-items:center;font-size:1.5rem;margin-bottom:22px;box-shadow:0 10px 24px -10px rgba(0,107,98,.6)}
+  .stage:nth-child(2) .stage-ic{background:linear-gradient(135deg,var(--gold) 0%,var(--gold-dark) 100%);box-shadow:0 10px 24px -10px rgba(201,168,76,.6)}
+  .stage:nth-child(3) .stage-ic{background:linear-gradient(135deg,#3a9b91 0%,var(--primary) 100%);box-shadow:0 10px 24px -10px rgba(58,155,145,.6)}
+  .stage:nth-child(4) .stage-ic{background:linear-gradient(135deg,#003d38 0%,#001a17 100%);box-shadow:0 10px 24px -10px rgba(0,61,56,.6)}
+  .stage h3{font-size:1.2rem;margin-bottom:8px;color:var(--primary-dark)}
+  .stage .age{font-size:.78rem;color:var(--gold-dark);font-weight:700;margin-bottom:14px;letter-spacing:.05em;text-transform:uppercase}
+  .stage p{font-size:.9rem;color:var(--muted);margin-bottom:18px;line-height:1.65}
+  .stage a{color:var(--primary);font-weight:700;font-size:.9rem;display:inline-flex;align-items:center;gap:6px;transition:gap .25s var(--ease)}
+  .stage a:hover{gap:10px}
+  .stage a i{font-size:.7rem;transform:rotate(180deg)}
+
+  /* ============ Platform / Portals ============ */
+  .platform{background:linear-gradient(180deg,var(--bg) 0%,#fff 100%)}
+  .platform-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .portal{background:#fff;border:1px solid var(--line);border-radius:18px;padding:28px;transition:all .3s var(--ease);position:relative;display:flex;flex-direction:column;gap:14px}
+  .portal:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:var(--primary-light)}
+  .portal-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .portal-ic{width:52px;height:52px;border-radius:14px;background:var(--primary-50);color:var(--primary);display:grid;place-items:center;font-size:1.3rem}
+  .portal-badge{font-size:.7rem;font-weight:700;padding:4px 10px;border-radius:999px;background:var(--bg);color:var(--muted)}
+  .portal-badge.live{background:#dcfce7;color:#15803d}
+  .portal h4{font-size:1.05rem;color:var(--primary-dark)}
+  .portal p{font-size:.86rem;color:var(--muted)}
+  .portal-link{margin-top:auto;color:var(--primary);font-weight:700;font-size:.86rem;display:inline-flex;align-items:center;gap:6px;padding-top:8px;border-top:1px solid var(--line);transition:gap .25s var(--ease)}
+  .portal-link:hover{gap:10px}
+  .portal-link i{font-size:.7rem;transform:rotate(180deg)}
+
+  /* ============ Stats ============ */
+  .stats{background:linear-gradient(135deg,var(--primary-dark) 0%,var(--primary) 50%,#003d38 100%);color:#fff;position:relative;overflow:hidden}
+  .stats::before{content:"";position:absolute;inset:0;background-image:radial-gradient(circle at 1px 1px,rgba(255,255,255,.08) 1px,transparent 0);background-size:32px 32px;opacity:.5}
+  .stats::after{content:"";position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(201,168,76,.18),transparent 70%);top:-200px;left:-200px}
+  .stats .container{position:relative;z-index:2}
+  .stats-head{text-align:center;margin-bottom:60px}
+  .stats-head .eyebrow{background:rgba(255,255,255,.12);color:#fff}
+  .stats-head h2{color:#fff;margin-bottom:14px}
+  .stats-head p{color:rgba(255,255,255,.75);max-width:600px;margin:0 auto}
+  .stats-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:20px}
+  .stat{text-align:center;padding:30px 18px;background:rgba(255,255,255,.06);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.12);border-radius:20px;transition:all .35s var(--ease)}
+  .stat:hover{transform:translateY(-6px);background:rgba(255,255,255,.1);border-color:var(--gold)}
+  .stat-ic{width:56px;height:56px;border-radius:14px;background:rgba(201,168,76,.18);color:var(--gold);display:grid;place-items:center;font-size:1.3rem;margin:0 auto 18px}
+  .stat-num{font-family:'Cairo';font-size:2.4rem;font-weight:900;line-height:1;color:#fff;margin-bottom:6px;letter-spacing:-.02em}
+  .stat-num .plus{color:var(--gold)}
+  .stat-label{font-size:.9rem;color:rgba(255,255,255,.75);font-weight:500}
+
+  /* ============ Activities Bento ============ */
+  .activities-bento{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(2,200px);gap:18px}
+  .act{position:relative;border-radius:20px;overflow:hidden;background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%);color:#fff;padding:24px;display:flex;flex-direction:column;justify-content:flex-end;transition:all .35s var(--ease);cursor:pointer}
+  .act::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 0%,rgba(0,0,0,.45) 100%);opacity:.7;transition:opacity .3s}
+  .act:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
+  .act:hover::before{opacity:.85}
+  .act-content{position:relative;z-index:2}
+  .act-tag{font-size:.7rem;font-weight:700;padding:4px 10px;border-radius:999px;background:rgba(255,255,255,.2);backdrop-filter:blur(8px);display:inline-block;margin-bottom:10px}
+  .act h3{font-size:1.15rem;line-height:1.3;margin-bottom:4px}
+  .act p{font-size:.82rem;opacity:.85;line-height:1.5}
+  /* Bento layout */
+  .act-1{grid-column:span 2;grid-row:span 2;background:linear-gradient(135deg,#003d38 0%,#006b62 50%,#3a9b91 100%)}
+  .act-1 h3{font-size:1.8rem}
+  .act-1 p{font-size:.95rem}
+  .act-2{background:linear-gradient(135deg,#c9a84c 0%,#a07830 100%)}
+  .act-3{background:linear-gradient(135deg,#15803d 0%,#22c55e 100%)}
+  .act-4{background:linear-gradient(135deg,#7c3aed 0%,#a855f7 100%)}
+  .act-5{background:linear-gradient(135deg,#dc2626 0%,#f97316 100%)}
+  .act-ic{position:absolute;top:24px;left:24px;width:44px;height:44px;border-radius:12px;background:rgba(255,255,255,.18);backdrop-filter:blur(10px);color:#fff;display:grid;place-items:center;font-size:1.1rem;z-index:2}
+
+  /* ============ Admission CTA ============ */
+  .admission{background:#fff}
+  .admission-card{background:linear-gradient(135deg,var(--primary-dark) 0%,var(--primary) 100%);border-radius:28px;padding:60px;color:#fff;position:relative;overflow:hidden;display:grid;grid-template-columns:1.2fr .8fr;gap:50px;align-items:center}
+  .admission-card::before{content:"";position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(201,168,76,.22),transparent 65%);top:-150px;left:-150px}
+  .admission-card::after{content:"";position:absolute;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.06),transparent 65%);bottom:-150px;right:-100px}
+  .admission-content{position:relative;z-index:2}
+  .admission-card .eyebrow{background:rgba(255,255,255,.15);color:#fff}
+  .admission-card h2{font-size:clamp(1.6rem,3vw,2.4rem);color:#fff;margin-bottom:14px;line-height:1.3}
+  .admission-card p{color:rgba(255,255,255,.85);font-size:1.02rem;margin-bottom:28px;max-width:520px}
+  .admission-actions{display:flex;gap:12px;flex-wrap:wrap}
+  .admission-steps{position:relative;z-index:2;display:flex;flex-direction:column;gap:16px}
+  .step{display:flex;gap:16px;align-items:flex-start;padding:18px;background:rgba(255,255,255,.08);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.12);border-radius:14px;transition:all .25s var(--ease)}
+  .step:hover{background:rgba(255,255,255,.12);transform:translateX(-6px)}
+  .step-num{width:36px;height:36px;border-radius:10px;background:var(--gold);color:var(--primary-dark);display:grid;place-items:center;font-family:'Cairo';font-weight:900;flex-shrink:0}
+  .step h4{font-size:.98rem;margin-bottom:4px;color:#fff}
+  .step p{font-size:.82rem;color:rgba(255,255,255,.75);margin:0;line-height:1.5}
+
+  /* ============ Footer ============ */
+  footer{background:linear-gradient(180deg,#0a1f1d 0%,#000 100%);color:rgba(255,255,255,.7);padding:80px 0 28px;position:relative;overflow:hidden}
+  footer::before{content:"";position:absolute;inset:0 0 auto 0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+  .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:50px;margin-bottom:50px}
+  .footer-brand .brand{margin-bottom:16px;color:#fff}
+  .footer-brand .brand-text strong{color:#fff}
+  .footer-brand .brand-text small{color:rgba(255,255,255,.55)}
+  .footer-brand p{font-size:.92rem;line-height:1.7;margin-bottom:20px}
+  .footer-social{display:flex;gap:8px}
+  .footer-social a{width:38px;height:38px;border-radius:10px;background:rgba(255,255,255,.06);color:rgba(255,255,255,.75);display:grid;place-items:center;font-size:.95rem;transition:all .25s var(--ease)}
+  .footer-social a:hover{background:var(--gold);color:var(--primary-dark);transform:translateY(-3px)}
+  footer h5{color:#fff;font-family:'Cairo';font-weight:800;font-size:1rem;margin-bottom:22px;position:relative;padding-bottom:12px}
+  footer h5::after{content:"";position:absolute;bottom:0;right:0;width:32px;height:2px;background:var(--gold);border-radius:2px}
+  footer ul{list-style:none;display:flex;flex-direction:column;gap:11px}
+  footer ul a{font-size:.9rem;color:rgba(255,255,255,.65);transition:all .2s var(--ease);display:inline-flex;align-items:center;gap:8px}
+  footer ul a::before{content:"\f053";font-family:"Font Awesome 6 Free";font-weight:900;font-size:.55rem;color:var(--gold);opacity:0;transform:translateX(6px);transition:all .25s var(--ease)}
+  footer ul a:hover{color:#fff;padding-right:4px}
+  footer ul a:hover::before{opacity:1;transform:translateX(0)}
+  .footer-contact li{display:flex;align-items:flex-start;gap:12px;color:rgba(255,255,255,.65);font-size:.9rem}
+  .footer-contact li i{color:var(--gold);margin-top:5px}
+  .footer-bottom{padding-top:28px;border-top:1px solid rgba(255,255,255,.08);display:flex;justify-content:space-between;align-items:center;font-size:.84rem;flex-wrap:wrap;gap:12px}
+  .footer-bottom a{color:rgba(255,255,255,.6)}
+  .footer-bottom a:hover{color:var(--gold)}
+
+  /* ============ Reveal on scroll ============ */
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+  .reveal.in{opacity:1;transform:translateY(0)}
+
+  /* ============ Responsive ============ */
+  @media (max-width:1024px){
+    .hero-grid{grid-template-columns:1fr;gap:50px}
+    .hero-visual{height:480px;max-width:520px;margin:0 auto}
+    .identity-grid{grid-template-columns:1fr;gap:40px}
+    .stages-grid{grid-template-columns:repeat(2,1fr)}
+    .platform-grid{grid-template-columns:repeat(2,1fr)}
+    .stats-grid{grid-template-columns:repeat(3,1fr)}
+    .activities-bento{grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(3,200px)}
+    .act-1{grid-column:span 2;grid-row:span 1}
+    .admission-card{grid-template-columns:1fr;gap:40px;padding:42px}
+    .trust-grid{grid-template-columns:repeat(2,1fr);gap:22px}
+    .footer-grid{grid-template-columns:repeat(2,1fr);gap:40px}
+  }
+  @media (max-width:760px){
+    section{padding:64px 0}
+    .topbar-info span:nth-child(2),.topbar-info span:nth-child(3){display:none}
+    .menu,.nav-cta .btn:not(.btn-gold){display:none}
+    .nav-toggle{display:inline-flex}
+    .menu.open{display:flex;position:absolute;top:100%;right:0;left:0;flex-direction:column;background:#fff;padding:14px;border-top:1px solid var(--line);box-shadow:var(--shadow);align-items:stretch;border-radius:0 0 16px 16px}
+    .menu.open>li{width:100%}
+    .menu.open>li>a{width:100%;padding:12px 14px}
+    .menu.open .dropdown{position:static;visibility:visible;opacity:1;transform:none;box-shadow:none;border:none;padding:4px 12px}
+    .hero{padding:50px 0 70px}
+    .hero-cta{flex-direction:column;align-items:stretch}
+    .hero-cta .btn{justify-content:center}
+    .hero-meta{gap:18px}
+    .hero-meta strong{font-size:1.2rem}
+    .hero-visual{height:420px}
+    .visual-float-1,.visual-float-2,.visual-float-3{display:none}
+    .stages-grid,.platform-grid,.stats-grid,.activities-bento,.trust-grid,.footer-grid{grid-template-columns:1fr}
+    .activities-bento{grid-template-rows:repeat(5,180px)}
+    .act-1{grid-column:span 1}
+    .admission-card{padding:32px 24px}
+    .admission-card h2{font-size:1.6rem}
+    .section-head{flex-direction:column;align-items:flex-start}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ Top Bar ============ -->
+<div class="topbar">
+  <div class="container">
+    <div class="topbar-info">
+      <span><i class="fa-solid fa-location-dot"></i> شرق الرياض، المملكة العربية السعودية</span>
+      <span><i class="fa-solid fa-envelope"></i> info@albaiariq.com</span>
+      <span><i class="fa-solid fa-clock"></i> الأحد - الخميس: 7:00 ص - 3:00 م</span>
+    </div>
+    <div class="topbar-social">
+      <a href="https://www.facebook.com/%D9%85%D8%AF%D8%A7%D8%B1%D8%B3-%D8%A7%D9%84%D8%A8%D9%8A%D8%A7%D8%B1%D9%82-%D8%A7%D9%84%D8%A3%D9%87%D9%84%D9%8A%D8%A9-109533790773449/" aria-label="فيسبوك"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://x.com/baiarigschools" aria-label="إكس"><i class="fa-brands fa-x-twitter"></i></a>
+      <a href="https://instagram.com/baiarigschools" aria-label="انستجرام"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.youtube.com/channel/UC_0aqJ_De3jn14Cc2mvcZeA/featured" aria-label="يوتيوب"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.tiktok.com/@baiarigschools" aria-label="تيك توك"><i class="fab fa-tiktok"></i></a>
+      <a href="https://wa.me/message/5GGWT4GSBECCA1" aria-label="واتساب"><i class="fab fa-whatsapp"></i></a>
+    </div>
+  </div>
+</div>
+
+<!-- ============ Navbar ============ -->
+<nav class="nav" id="nav">
+  <div class="container">
+    <a href="#" class="brand">
+      <span class="brand-mark"><i class="fa-solid fa-flag"></i></span>
+      <span class="brand-text">
+        <strong>مدارس البيارق</strong>
+        <small>الأهلية — منذ ٢٠٠٤</small>
+      </span>
+    </a>
+    <ul class="menu" id="menu">
+      <li><a href="#home">الرئيسية</a></li>
+      <li class="has-dropdown">
+        <a href="#about">من نحن</a>
+        <ul class="dropdown">
+          <li><a href="#about">رؤيتنا</a></li>
+          <li><a href="#about">رسالتنا</a></li>
+          <li><a href="#about">قيمنا وأهدافنا</a></li>
+          <li><a href="#about">بناء الشخصية المتكاملة</a></li>
+          <li><a href="#about">المرافق والتجهيزات</a></li>
+        </ul>
+      </li>
+      <li><a href="#stages">المراحل</a></li>
+      <li class="has-dropdown">
+        <a href="#platform">منصة البيارق</a>
+        <ul class="dropdown">
+          <li><a href="#platform">دخول الطلاب والطالبات</a></li>
+          <li><a href="#platform">دخول أولياء الأمور</a></li>
+          <li><a href="#platform">دخول منسوبي المدارس</a></li>
+          <li><a href="#platform">دخول الروضة</a></li>
+          <li><a href="#platform">نظام الاختبارات</a></li>
+        </ul>
+      </li>
+      <li><a href="#activities">الأنشطة</a></li>
+      <li><a href="#admission">التسجيل</a></li>
+      <li><a href="#footer">تواصل معنا</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="#" class="btn btn-ghost"><i class="fa-solid fa-calculator"></i> حاسبة الأعمار</a>
+      <a href="#admission" class="btn btn-gold"><i class="fa-solid fa-pen-to-square"></i> سجّل الآن</a>
+      <button class="nav-toggle" id="navToggle" aria-label="القائمة"><i class="fa-solid fa-bars"></i></button>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ Hero ============ -->
+<header class="hero" id="home">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-content reveal">
+        <span class="eyebrow"><i class="fa-solid fa-star"></i> صرح تعليمي رائد في شرق الرياض</span>
+        <h1>نُربّي جيلًا يحمل <span class="accent">بيارق المستقبل</span> بثقة ومعرفة وقيم.</h1>
+        <p class="lead">منذ أكثر من عقدين، نُقدّم تعليمًا متكاملًا من التمهيدي حتى الثانوي يُعزّز الشخصية، يُغذّي المهارات، ويستثمر في كل طالب وطالبة بمنصة رقمية متقدمة وكوادر تربوية مُتميّزة.</p>
+        <div class="hero-cta">
+          <a href="#admission" class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i> سجّل في البيارق</a>
+          <a href="#about" class="btn btn-ghost"><i class="fa-solid fa-play"></i> تعرّف على المدرسة</a>
+        </div>
+        <div class="hero-meta">
+          <div>
+            <strong>+21</strong>
+            <span>عامًا من العطاء</span>
+          </div>
+          <div>
+            <strong>+10,000</strong>
+            <span>خريج وخريجة</span>
+          </div>
+          <div>
+            <strong>+300</strong>
+            <span>كادر تربوي مؤهل</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal">
+        <div class="visual-card visual-main">
+          <span class="visual-badge"><i class="fa-solid fa-shield-halved"></i> معتمدة من وزارة التعليم</span>
+          <div class="visual-illustration">
+            <div class="visual-shield">
+              <span class="visual-shield-text">البيارق</span>
+            </div>
+          </div>
+          <div class="visual-tagline">
+            مدارس البيارق الأهلية
+            <small>نهضة مستدامة • شخصية متكاملة • قيم راسخة</small>
+          </div>
+        </div>
+        <div class="visual-float visual-float-1">
+          <div class="ic"><i class="fa-solid fa-graduation-cap"></i></div>
+          <div class="tx"><strong>تربية خاصة</strong><span>برنامج متخصص</span></div>
+        </div>
+        <div class="visual-float visual-float-2">
+          <div class="ic"><i class="fa-solid fa-laptop"></i></div>
+          <div class="tx"><strong>منصة رقمية</strong><span>للطلاب وأولياء الأمور</span></div>
+        </div>
+        <div class="visual-float visual-float-3">
+          <div class="ic"><i class="fa-solid fa-award"></i></div>
+          <div class="tx"><strong>شهادة تميّز</strong><span>أداء تعليمي متقدم</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ Trust Strip ============ -->
+<section class="trust" style="padding:34px 0">
+  <div class="container">
+    <div class="trust-grid">
+      <div class="trust-item">
+        <div class="ic"><i class="fa-solid fa-check-double"></i></div>
+        <div><strong>اعتماد وزاري</strong><span>متوافقة مع رؤية المملكة 2030</span></div>
+      </div>
+      <div class="trust-item">
+        <div class="ic"><i class="fa-solid fa-microchip"></i></div>
+        <div><strong>منصة رقمية شاملة</strong><span>تتبّع فوري للأداء والحضور</span></div>
+      </div>
+      <div class="trust-item">
+        <div class="ic"><i class="fa-solid fa-hands-holding-child"></i></div>
+        <div><strong>تربية متكاملة</strong><span>أكاديمي + مهارات + قيم</span></div>
+      </div>
+      <div class="trust-item">
+        <div class="ic"><i class="fa-solid fa-building-shield"></i></div>
+        <div><strong>بيئة آمنة وحديثة</strong><span>مرافق مجهّزة بأحدث المعايير</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ About / Identity ============ -->
+<section id="about">
+  <div class="container">
+    <div class="identity-grid">
+      <div class="reveal">
+        <div class="identity-visual">
+          <div class="identity-emblem">
+            <i class="fa-solid fa-flag"></i>
+            <h3>هويتنا</h3>
+            <p>صرحٌ يصنع القادة</p>
+          </div>
+          <div class="identity-stat-card identity-stat-1">
+            <div class="n">٢١<span style="color:var(--gold);font-size:1.2rem">+</span></div>
+            <span class="l">عامًا من الريادة</span>
+          </div>
+          <div class="identity-stat-card identity-stat-2">
+            <div class="n">٤٠٠٠</div>
+            <span class="l">طاقة استيعابية</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <span class="eyebrow"><i class="fa-solid fa-bookmark"></i> هويتنا</span>
+        <h2 class="section-title">مدرسة لا تُعلّم فحسب، بل تُشكّل شخصية الإنسان.</h2>
+        <p class="section-lead" style="margin-bottom:0">مدارس البيارق الأهلية صرحٌ تعليميٌّ تربويٌّ يجمع بين أصالة القيم وحداثة الأدوات. نُؤمن بأن كل طالب رحلةٌ مُستقلّة، وأن دورنا أن نُهيّئ له بيئةً يكتشف فيها ذاته، ويُتقن مهاراته، ويصنع أثره.</p>
+
+        <div class="pillar-list">
+          <div class="pillar">
+            <div class="pillar-ic"><i class="fa-solid fa-eye"></i></div>
+            <div>
+              <h4>رؤيتنا</h4>
+              <p>أن نكون من أفضل المدارس الأهلية في المملكة العربية السعودية في تقديم تعليمٍ نوعيٍّ يُسهم في بناء جيلٍ قادرٍ على قيادة النهضة المستدامة.</p>
+            </div>
+          </div>
+          <div class="pillar">
+            <div class="pillar-ic"><i class="fa-solid fa-bullseye"></i></div>
+            <div>
+              <h4>رسالتنا</h4>
+              <p>تقديم منظومة تعليمية متكاملة تُنمّي شخصية المتعلّم في جوانبها المعرفية والوجدانية والمهارية، وفق أحدث المنهجيات التربوية وبأيدي كوادر مؤهلة.</p>
+            </div>
+          </div>
+          <div class="pillar">
+            <div class="pillar-ic"><i class="fa-solid fa-gem"></i></div>
+            <div>
+              <h4>قيمنا</h4>
+              <p>الانتماء، والإتقان، والاحترام، والابتكار، والمسؤولية — قيمٌ نعيشها قبل أن نُعلّمها، ونغرسها في كل تفصيل من تفاصيل يومنا الدراسي.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Stages ============ -->
+<section class="stages" id="stages">
+  <div class="container">
+    <div class="section-head">
+      <div class="left">
+        <span class="eyebrow"><i class="fa-solid fa-layer-group"></i> المراحل التعليمية</span>
+        <h2 class="section-title">رحلة تعليمية متكاملة من الطفولة إلى الشباب</h2>
+        <p class="section-lead" style="margin-bottom:0">من الفصل الأول في التمهيدي حتى تخرّج الثانوية، نُرافق طالبنا في كل خطوة بمنهج عمري دقيق وفريق متخصص في كل مرحلة.</p>
+      </div>
+      <a href="#admission" class="btn btn-primary"><i class="fa-solid fa-arrow-left"></i> تعرّف على شروط القبول</a>
+    </div>
+
+    <div class="stages-grid">
+      <div class="stage reveal">
+        <div class="stage-ic"><i class="fa-solid fa-baby"></i></div>
+        <div class="age">٣ - ٦ سنوات</div>
+        <h3>المرحلة التمهيدية</h3>
+        <p>أساسٌ متينٌ يُبنى عبر اللعب الموجّه، النشاط الحسي، ومهارات التواصل الأولى في بيئة آمنة ومُحفّزة.</p>
+        <a href="#admission">سجّل في التمهيدي <i class="fa-solid fa-arrow-left"></i></a>
+      </div>
+      <div class="stage reveal">
+        <div class="stage-ic"><i class="fa-solid fa-book-open"></i></div>
+        <div class="age">٦ - ١٢ سنة</div>
+        <h3>المرحلة الابتدائية</h3>
+        <p>تأسيسٌ قويٌّ في القراءة والكتابة والحساب، مع تنمية حب الاستطلاع والمهارات المجتمعية ومحبّة العلم.</p>
+        <a href="#admission">سجّل في الابتدائي <i class="fa-solid fa-arrow-left"></i></a>
+      </div>
+      <div class="stage reveal">
+        <div class="stage-ic"><i class="fa-solid fa-microscope"></i></div>
+        <div class="age">١٢ - ١٥ سنة</div>
+        <h3>المرحلة المتوسطة</h3>
+        <p>توسيعٌ للآفاق المعرفية، وتعميقٌ للهوية، ودعمٌ نفسيٌّ ومهاريٌّ للمرحلة الانتقالية الحساسة.</p>
+        <a href="#admission">سجّل في المتوسط <i class="fa-solid fa-arrow-left"></i></a>
+      </div>
+      <div class="stage reveal">
+        <div class="stage-ic"><i class="fa-solid fa-user-graduate"></i></div>
+        <div class="age">١٥ - ١٨ سنة</div>
+        <h3>المرحلة الثانوية</h3>
+        <p>إعدادٌ متكاملٌ للجامعة وسوق العمل عبر إرشاد أكاديمي وتأهيل لاختبارات القدرات والتحصيلي.</p>
+        <a href="#admission">سجّل في الثانوي <i class="fa-solid fa-arrow-left"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Platform ============ -->
+<section class="platform" id="platform">
+  <div class="container">
+    <div class="section-head text-center" style="flex-direction:column;align-items:center;text-align:center">
+      <div class="left" style="text-align:center">
+        <span class="eyebrow"><i class="fa-solid fa-microchip"></i> منصة البيارق الرقمية</span>
+        <h2 class="section-title">منظومةٌ رقميةٌ مُتكاملةٌ تربط البيت بالمدرسة</h2>
+        <p class="section-lead" style="margin:0 auto 0">بوابات مُخصّصة للطلاب وأولياء الأمور والمعلمين والإدارة — كل من يهمّه التعليم يجد نافذته الخاصة.</p>
+      </div>
+    </div>
+
+    <div class="platform-grid">
+      <a href="#" class="portal reveal">
+        <div class="portal-top">
+          <div class="portal-ic"><i class="fa-solid fa-user-graduate"></i></div>
+          <span class="portal-badge live">نشطة</span>
+        </div>
+        <h4>دخول الطلاب والطالبات</h4>
+        <p>الواجبات، الدرجات، الجدول الدراسي، والإشعارات الفورية.</p>
+        <span class="portal-link">دخول البوابة <i class="fa-solid fa-arrow-left"></i></span>
+      </a>
+      <a href="#" class="portal reveal">
+        <div class="portal-top">
+          <div class="portal-ic"><i class="fa-solid fa-people-roof"></i></div>
+          <span class="portal-badge live">نشطة</span>
+        </div>
+        <h4>دخول أولياء الأمور</h4>
+        <p>متابعة مستمرة لتحصيل الأبناء، الحضور، السلوك، والرسوم.</p>
+        <span class="portal-link">دخول البوابة <i class="fa-solid fa-arrow-left"></i></span>
+      </a>
+      <a href="#" class="portal reveal">
+        <div class="portal-top">
+          <div class="portal-ic"><i class="fa-solid fa-chalkboard-user"></i></div>
+          <span class="portal-badge live">نشطة</span>
+        </div>
+        <h4>دخول منسوبي المدارس</h4>
+        <p>إدارة الفصول، رصد الدرجات، التواصل مع الزملاء وأولياء الأمور.</p>
+        <span class="portal-link">دخول البوابة <i class="fa-solid fa-arrow-left"></i></span>
+      </a>
+      <a href="#" class="portal reveal">
+        <div class="portal-top">
+          <div class="portal-ic"><i class="fa-solid fa-puzzle-piece"></i></div>
+          <span class="portal-badge live">نشطة</span>
+        </div>
+        <h4>روضة الأطفال — البوابتان</h4>
+        <p>نوافذ مخصصة للأطفال وللمعلمات، بواجهات بسيطة وتفاعلية.</p>
+        <span class="portal-link">دخول البوابة <i class="fa-solid fa-arrow-left"></i></span>
+      </a>
+      <a href="#" class="portal reveal">
+        <div class="portal-top">
+          <div class="portal-ic"><i class="fa-solid fa-file-circle-check"></i></div>
+          <span class="portal-badge live">نشطة</span>
+        </div>
+        <h4>نظام اختبارات القدرات والتحصيلي</h4>
+        <p>اختبارات تجريبية وتحليلات أداء لإعداد طلاب الثانوية للجامعة.</p>
+        <span class="portal-link">دخول النظام <i class="fa-solid fa-arrow-left"></i></span>
+      </a>
+      <a href="#" class="portal reveal">
+        <div class="portal-top">
+          <div class="portal-ic"><i class="fa-solid fa-credit-card"></i></div>
+          <span class="portal-badge live">نشطة</span>
+        </div>
+        <h4>سداد الرسوم الدراسية</h4>
+        <p>دفعات إلكترونية آمنة عبر بوابة سداد بكل سهولة وشفافية.</p>
+        <span class="portal-link">سداد الرسوم <i class="fa-solid fa-arrow-left"></i></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Stats ============ -->
+<section class="stats">
+  <div class="container">
+    <div class="stats-head reveal">
+      <span class="eyebrow"><i class="fa-solid fa-chart-line"></i> أرقامنا تتحدّث</span>
+      <h2 class="section-title">إرثٌ تربويٌّ يتجدّد كل عام</h2>
+      <p>ما حقّقناه عبر أكثر من عقدين هو دافعنا لما هو قادم — أرقام تعكس الثقة والاستمرارية.</p>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat reveal">
+        <div class="stat-ic"><i class="fa-solid fa-eye"></i></div>
+        <div class="stat-num" data-count="872008">0</div>
+        <div class="stat-label">عدد الزوار</div>
+      </div>
+      <div class="stat reveal">
+        <div class="stat-ic"><i class="fa-solid fa-chalkboard-user"></i></div>
+        <div class="stat-num"><span data-count="300">0</span><span class="plus">+</span></div>
+        <div class="stat-label">الكادر التعليمي</div>
+      </div>
+      <div class="stat reveal">
+        <div class="stat-ic"><i class="fa-solid fa-calendar-check"></i></div>
+        <div class="stat-num"><span data-count="21">0</span><span class="plus">+</span></div>
+        <div class="stat-label">عامًا من العطاء</div>
+      </div>
+      <div class="stat reveal">
+        <div class="stat-ic"><i class="fa-solid fa-user-graduate"></i></div>
+        <div class="stat-num"><span data-count="10000">0</span><span class="plus">+</span></div>
+        <div class="stat-label">الخرّيجون والخرّيجات</div>
+      </div>
+      <div class="stat reveal">
+        <div class="stat-ic"><i class="fa-solid fa-school"></i></div>
+        <div class="stat-num"><span data-count="4000">0</span><span class="plus">+</span></div>
+        <div class="stat-label">الطاقة الاستيعابية</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Activities ============ -->
+<section id="activities">
+  <div class="container">
+    <div class="section-head">
+      <div class="left">
+        <span class="eyebrow"><i class="fa-solid fa-palette"></i> أنشطتنا وفعالياتنا</span>
+        <h2 class="section-title">حين تتجاوز المدرسة جدران الفصل</h2>
+        <p class="section-lead" style="margin-bottom:0">نُؤمن بأن التعلّم الحقيقي يحدث في الميدان وفي التجربة. هذه نماذج من فعالياتنا التي رسمت ابتسامة وصنعت ذكرى.</p>
+      </div>
+      <a href="#" class="btn btn-ghost">جميع الفعاليات <i class="fa-solid fa-arrow-left"></i></a>
+    </div>
+
+    <div class="activities-bento">
+      <div class="act act-1 reveal">
+        <div class="act-ic"><i class="fa-solid fa-flag"></i></div>
+        <div class="act-content">
+          <span class="act-tag">يوم وطني</span>
+          <h3>اليوم الوطني السعودي ٩٤</h3>
+          <p>احتفت مدارس البيارق باليوم الوطني بفعاليات تُعزّز روح الانتماء والاعتزاز بالوطن لدى الطلاب والطالبات.</p>
+        </div>
+      </div>
+      <div class="act act-2 reveal">
+        <div class="act-ic"><i class="fa-solid fa-heart"></i></div>
+        <div class="act-content">
+          <span class="act-tag">قيم</span>
+          <h3>الرفق بالحيوان</h3>
+          <p>مبادرة لقسم التمهيدي تزرع الرحمة والاحترام.</p>
+        </div>
+      </div>
+      <div class="act act-3 reveal">
+        <div class="act-ic"><i class="fa-solid fa-language"></i></div>
+        <div class="act-content">
+          <span class="act-tag">ثقافة</span>
+          <h3>اليوم العالمي للغة العربية</h3>
+          <p>احتفاء بلغتنا الأم في أقسام البنات.</p>
+        </div>
+      </div>
+      <div class="act act-4 reveal">
+        <div class="act-ic"><i class="fa-solid fa-rocket"></i></div>
+        <div class="act-content">
+          <span class="act-tag">علوم</span>
+          <h3>خارج كوكبنا</h3>
+          <p>برنامج لاستكشاف عجائب الفضاء.</p>
+        </div>
+      </div>
+      <div class="act act-5 reveal">
+        <div class="act-ic"><i class="fa-solid fa-hands-holding"></i></div>
+        <div class="act-content">
+          <span class="act-tag">مجتمع</span>
+          <h3>زيارة دار المسنين</h3>
+          <p>لمسة وفاء ومبادرة مجتمعية ملهمة.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Admission CTA ============ -->
+<section class="admission" id="admission">
+  <div class="container">
+    <div class="admission-card reveal">
+      <div class="admission-content">
+        <span class="eyebrow"><i class="fa-solid fa-pen-to-square"></i> القبول والتسجيل</span>
+        <h2>انضمّ إلى عائلة البيارق — التسجيل مفتوح للعام الدراسي ١٤٤٧هـ</h2>
+        <p>عمليةٌ بسيطةٌ في أربع خطوات. سجّل أبناءك إلكترونيًا بنقرات معدودة، واطّلع على الرسوم والشروط بكل وضوح.</p>
+        <div class="admission-actions">
+          <a href="#" class="btn btn-gold"><i class="fa-solid fa-pen-to-square"></i> ابدأ التسجيل الإلكتروني</a>
+          <a href="#" class="btn btn-outline-light"><i class="fa-solid fa-file-lines"></i> اطّلع على الشروط</a>
+          <a href="#" class="btn btn-outline-light"><i class="fa-solid fa-calculator"></i> حاسبة الأعمار</a>
+        </div>
+      </div>
+      <div class="admission-steps">
+        <div class="step">
+          <div class="step-num">١</div>
+          <div>
+            <h4>تأكّد من الأهلية</h4>
+            <p>استخدم حاسبة الأعمار للتحقّق من المرحلة المناسبة لابنك أو ابنتك.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">٢</div>
+          <div>
+            <h4>عبّئ الاستمارة الإلكترونية</h4>
+            <p>أدخل بيانات الطالب وأرفق المستندات المطلوبة في خطوات سهلة.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">٣</div>
+          <div>
+            <h4>المقابلة وتحديد المستوى</h4>
+            <p>نتواصل معك لتحديد موعد المقابلة واختبار تحديد المستوى.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">٤</div>
+          <div>
+            <h4>سداد الرسوم وإكمال القيد</h4>
+            <p>ادفع الرسوم بأمان عبر بوابة سداد لتثبيت مقعد ابنك.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Footer ============ -->
+<footer id="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="brand">
+          <span class="brand-mark"><i class="fa-solid fa-flag"></i></span>
+          <span class="brand-text">
+            <strong>مدارس البيارق</strong>
+            <small>الأهلية — منذ ٢٠٠٤</small>
+          </span>
+        </a>
+        <p>صرحٌ تعليميٌّ تربويٌّ في شرق الرياض، يجمع بين أصالة القيم وحداثة الأدوات لإعداد جيل قادر على قيادة النهضة المستدامة.</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/%D9%85%D8%AF%D8%A7%D8%B1%D8%B3-%D8%A7%D9%84%D8%A8%D9%8A%D8%A7%D8%B1%D9%82-%D8%A7%D9%84%D8%A3%D9%87%D9%84%D9%8A%D8%A9-109533790773449/" aria-label="فيسبوك"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://x.com/baiarigschools" aria-label="إكس"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="https://instagram.com/baiarigschools" aria-label="انستجرام"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.youtube.com/channel/UC_0aqJ_De3jn14Cc2mvcZeA/featured" aria-label="يوتيوب"><i class="fab fa-youtube"></i></a>
+          <a href="https://www.tiktok.com/@baiarigschools" aria-label="تيك توك"><i class="fab fa-tiktok"></i></a>
+          <a href="https://wa.me/message/5GGWT4GSBECCA1" aria-label="واتساب"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div>
+        <h5>روابط سريعة</h5>
+        <ul>
+          <li><a href="#about">من نحن</a></li>
+          <li><a href="#stages">المراحل التعليمية</a></li>
+          <li><a href="#platform">منصة البيارق</a></li>
+          <li><a href="#admission">القبول والتسجيل</a></li>
+          <li><a href="#">حاسبة الأعمار</a></li>
+          <li><a href="#">التوظيف</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>منصة البيارق</h5>
+        <ul>
+          <li><a href="#">دخول الطلاب</a></li>
+          <li><a href="#">دخول أولياء الأمور</a></li>
+          <li><a href="#">دخول المعلمين</a></li>
+          <li><a href="#">نظام الاختبارات</a></li>
+          <li><a href="#">سداد الرسوم</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>تواصل معنا</h5>
+        <ul class="footer-contact">
+          <li><i class="fa-solid fa-location-dot"></i> <span>شرق الرياض،<br>المملكة العربية السعودية</span></li>
+          <li><i class="fa-solid fa-envelope"></i> <span>info@albaiariq.com</span></li>
+          <li><i class="fa-brands fa-whatsapp"></i> <span>تواصل عبر الواتساب</span></li>
+          <li><i class="fa-solid fa-clock"></i> <span>الأحد - الخميس<br>7:00 صباحًا - 3:00 عصرًا</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>جميع الحقوق محفوظة © 2026 مدارس البيارق الأهلية</p>
+      <p><a href="#">سياسة الخصوصية</a> • <a href="#">شروط الاستخدام</a></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Navbar scroll shadow
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 12);
+  });
+
+  // Mobile menu toggle
+  const navToggle = document.getElementById('navToggle');
+  const menu = document.getElementById('menu');
+  navToggle?.addEventListener('click', () => menu.classList.toggle('open'));
+  document.querySelectorAll('.menu a').forEach(a => a.addEventListener('click', () => menu.classList.remove('open')));
+
+  // Reveal on scroll
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Count up animation
+  const animateCount = (el) => {
+    const target = +el.dataset.count;
+    const duration = 1800;
+    const start = performance.now();
+    const tick = (now) => {
+      const p = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      const val = Math.floor(target * eased);
+      el.textContent = val.toLocaleString('ar-SA');
+      if (p < 1) requestAnimationFrame(tick);
+      else el.textContent = target.toLocaleString('ar-SA');
+    };
+    requestAnimationFrame(tick);
+  };
+  const statIO = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.querySelectorAll('[data-count]').forEach(animateCount);
+        statIO.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.4 });
+  document.querySelectorAll('.stat').forEach(el => statIO.observe(el));
+</script>
+
+</body>
+</html>
